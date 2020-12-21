@@ -1897,7 +1897,7 @@ CREATE TABLE `core_setting` (
 
 LOCK TABLES `core_setting` WRITE;
 /*!40000 ALTER TABLE `core_setting` DISABLE KEYS */;
-INSERT INTO `core_setting` VALUES (1,'cacheClearedAt','1595675604'),(1,'databaseVersion','6.4.159'),(1,'defaultCurrency','Rs'),(1,'defaultDecimalSeparator','.'),(1,'defaultThousandSeparator',','),(1,'defaultTimezone','Asia/Calcutta'),(1,'language','en'),(1,'locale','C.UTF-8'),(1,'primaryColor','0E3B83'),(1,'smtpEncryption',NULL),(1,'smtpPassword',NULL),(1,'smtpPort','25'),(1,'systemEmail','postmaster@powermail.mydomainname.com'),(1,'URL','https://homail.manugraph.com/groupoffice/'),(1,'userAddressBookId','2'),(2,'lastContactColorIndex','3');
+INSERT INTO `core_setting` VALUES (1,'cacheClearedAt','1595675604'),(1,'databaseVersion','6.4.159'),(1,'defaultCurrency','Rs'),(1,'defaultDecimalSeparator','.'),(1,'defaultThousandSeparator',','),(1,'defaultTimezone','Asia/Calcutta'),(1,'language','en'),(1,'locale','C.UTF-8'),(1,'primaryColor','0E3B83'),(1,'smtpEncryption',NULL),(1,'smtpPassword',NULL),(1,'smtpPort','25'),(1,'systemEmail','postmaster@powermail.mydomainname.com'),(1,'URL','https://powermail.mydomainname.com/groupoffice/'),(1,'userAddressBookId','2'),(2,'lastContactColorIndex','3');
 /*!40000 ALTER TABLE `core_setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3709,7 +3709,7 @@ CREATE TABLE `go_templates` (
 
 LOCK TABLES `go_templates` WRITE;
 /*!40000 ALTER TABLE `go_templates` DISABLE KEYS */;
-INSERT INTO `go_templates` VALUES (1,1,0,'Default',8,'Message-ID: <c474869bd9b6713be9e93bbb70ce99c5@homail.manugraph.com>\r\nDate: Sat, 25 Jul 2020 10:50:43 +0000\r\nFrom: \r\nMIME-Version: 1.0\r\nContent-Type: multipart/alternative;\r\n boundary=\"_=_swift_1595674243_16e98ff2db13dd5e74fe87c3c9d81101_=_\"\r\nX-Group-Office-Title: Group-Office\r\n\r\n\r\n--_=_swift_1595674243_16e98ff2db13dd5e74fe87c3c9d81101_=_\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\nHi {contact:firstName},\r\n\r\n{body}\r\n\r\nBest regards\r\n\r\n\r\n{user:displayName}\r\n\r\n--_=_swift_1595674243_16e98ff2db13dd5e74fe87c3c9d81101_=_\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\nHi<gotpl if=3D\"contact:firstName\"> {contact:firstName},</gotpl><br />\r\n<br />\r\n{body}<br />\r\n<br />\r\nBest regards<br />\r\n<br />\r\n<br />\r\n{user:displayName}<br />\r\n\r\n--_=_swift_1595674243_16e98ff2db13dd5e74fe87c3c9d81101_=_--\r\n','');
+INSERT INTO `go_templates` VALUES (1,1,0,'Default',8,'Message-ID: <c474869bd9b6713be9e93bbb70ce99c5@powermail.mydomainname.com>\r\nDate: Sat, 25 Jul 2020 10:50:43 +0000\r\nFrom: \r\nMIME-Version: 1.0\r\nContent-Type: multipart/alternative;\r\n boundary=\"_=_swift_1595674243_16e98ff2db13dd5e74fe87c3c9d81101_=_\"\r\nX-Group-Office-Title: Group-Office\r\n\r\n\r\n--_=_swift_1595674243_16e98ff2db13dd5e74fe87c3c9d81101_=_\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\nHi {contact:firstName},\r\n\r\n{body}\r\n\r\nBest regards\r\n\r\n\r\n{user:displayName}\r\n\r\n--_=_swift_1595674243_16e98ff2db13dd5e74fe87c3c9d81101_=_\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: quoted-printable\r\n\r\nHi<gotpl if=3D\"contact:firstName\"> {contact:firstName},</gotpl><br />\r\n<br />\r\n{body}<br />\r\n<br />\r\nBest regards<br />\r\n<br />\r\n<br />\r\n{user:displayName}<br />\r\n\r\n--_=_swift_1595674243_16e98ff2db13dd5e74fe87c3c9d81101_=_--\r\n','');
 /*!40000 ALTER TABLE `go_templates` ENABLE KEYS */;
 UNLOCK TABLES;
 
