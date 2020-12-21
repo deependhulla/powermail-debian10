@@ -52,8 +52,11 @@ echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo deb
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 
 
-apt-get -y install postfix openssh-server vim iptraf screen mc net-tools sshfs telnet iputils-ping git psmisc apt-transport-https curl bind9 curl elinks xfsprogs debconf-utils pwgen ca-certificates gnupg2 wget unzip zip software-properties-common htop fetchmail iptables-persistent redis-server imagemagick mariadb-server postfix-mysql dovecot-mysql dovecot-sieve dovecot-managesieved dovecot-imapd dovecot-pop3d dovecot-sieve dovecot-antispam sendemail postfix-pcre postfwd whois opendkim opendkim-tools unbound certbot python-certbot-apache apache2 ftp mcrypt clamav clamav-unofficial-sigs clamav-daemon tnef poppler-utils 
+apt-get -y install postfix openssh-server vim iptraf screen mc net-tools sshfs telnet iputils-ping git psmisc apt-transport-https curl bind9 curl elinks xfsprogs debconf-utils pwgen ca-certificates gnupg2 wget unzip zip software-properties-common htop fetchmail iptables-persistent redis-server imagemagick mariadb-server postfix-mysql dovecot-mysql dovecot-sieve dovecot-managesieved dovecot-imapd dovecot-pop3d dovecot-sieve dovecot-antispam sendemail postfix-pcre postfwd whois opendkim opendkim-tools certbot python-certbot-apache apache2 ftp mcrypt clamav clamav-unofficial-sigs clamav-daemon tnef poppler-utils build-essential 
 apt-get -y upgrade
+
+systemctl stop bind9 2>/dev/null
+systemctl disable bind9 2>/dev/null
 
 
 ## make cpan auto yes for pre-requist modules of perl

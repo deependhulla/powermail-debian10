@@ -1,0 +1,2 @@
+MAILTO=""
+* * * * * php /var/www/html/groupoffice/cron.php /var/www/html/groupoffice/config.php

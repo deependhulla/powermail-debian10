@@ -40,15 +40,6 @@ echo > /var/log/mail.log
 /bin/rm -rf /var/log/mail.warn
 /bin/rm -rf /var/log/mail.err
 
-## instead of exim add powermail
-sed -i "s/exim/powermail/g" /etc/webmin/webmin.acl
-
-echo "manager:xxxxxjpihs:0" >> /etc/webmin/miniserv.users
-echo "manager:powermail postfix custom" >>  /etc/webmin/webmin.acl
-
-WEPASSVPOP=`pwgen -c -1 8`
-echo $WEPASSVPOP > /usr/local/src/manager-powermail-pass
-/usr/share/webmin/changepass.pl  /etc/webmin manager `cat /usr/local/src/manager-powermail-pass`
 
 mysql < files/powermaildb.sql
 mysql < files/powermail-extra-features.sql
@@ -95,6 +86,8 @@ echo $GOPASSVPOP > /usr/local/src/groupofficeadmin-pass
 
 php /usr/local/src/groupoffice64-groupofficeadmin-password-reset.php 
 
+/etc/init.d/opendkim stop
+/etc/init.d/opendkim start
 
 /home/powermail/bin/vadddomain `hostname -f`
 /home/powermail/bin/vaddalias root@`hostname -f` postmaster@`hostname -f`

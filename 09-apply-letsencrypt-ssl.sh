@@ -10,6 +10,7 @@ sed -i "s/powermail\.mydomainname\.com/`hostname -f`/" /etc/apache2/sites-availa
 sed -i "s/#RewriteEngine/RewriteEngine/" /etc/apache2/sites-available/000-default.conf
 sed -i "s/#RewriteCond/RewriteCond/" /etc/apache2/sites-available/000-default.conf
 sed -i "s/#RewriteRule/RewriteRule/" /etc/apache2/sites-available/000-default.conf
+ln -vs /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/
 /etc/init.d/apache2 restart
 
 sed -i "s/ssl_key = <\/etc\/ssl\/private\/ssl-cert-snakeoil\.key//" /etc/dovecot/conf.d/10-ssl.conf
