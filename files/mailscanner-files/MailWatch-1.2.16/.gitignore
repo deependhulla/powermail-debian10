@@ -1,7 +1,0 @@
-#files
-/mailscanner/conf.php
-/mailscanner/skin.css
-
-#development files
-/_msconfig/
-/vendor/
