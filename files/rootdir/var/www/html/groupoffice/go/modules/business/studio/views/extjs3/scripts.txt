@@ -1,0 +1,11 @@
+Module.js
+MainPanel.js
+StudioGrid.js
+CreateModuleDialog.js
+StudioWizard.js
+WizardModulePanel.js
+WizardEntityPanel.js
+WizardFrontendOptionsPanel.js
+WizardEntityParameterPanel.js
+WizardPermissionsPanel.js
+WizardActivationPanel.js

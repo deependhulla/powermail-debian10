@@ -1,0 +1,53 @@
+#paper {
+  display: none;
+}
+
+@media print {
+  @page {
+    margin: 10mm;
+    size: auto;// portrait;
+  }
+
+  body, html {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    overflow: visible !important;
+  }
+
+  html > body {
+    margin: 0mm !important;
+    height: auto !important;
+  }
+
+  body > * {
+    display: none !important;
+  }
+
+
+  .go-main-tab-panel, #mainNorthPanel, .go-search-panel {
+    display: none !important;
+    overflow: hidden !important;
+  }
+
+  #paper {
+    display: block !important;
+    overflow: visible !important;
+    position: absolute !important;
+    box-shadow: none !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  td, th {
+    padding: 0 dp(8);
+  }
+  th {
+    font-weight: bold;
+  }
+}

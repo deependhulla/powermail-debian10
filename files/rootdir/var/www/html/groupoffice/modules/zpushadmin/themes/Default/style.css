@@ -1,0 +1,18 @@
+.go-module-icon-zpushadmin , .go-menu-icon-zpushadmin {
+	background-image: url('images/zpushadmin.png') !important;
+}
+
+.go-tab-icon-zpushadmin {
+	background-image: none !important;
+}
+
+.zpushadmin-new-device{
+	color: var(--c-accent);
+}
+
+.zpushadmin-enabled-device{
+}
+
+.zpushadmin-disabled-device{
+	opacity: .6;
+}
