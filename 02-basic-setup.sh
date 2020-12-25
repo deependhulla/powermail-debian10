@@ -82,8 +82,8 @@ echo "alias rm='rm -i'" >> /etc/bash.bashrc
 
 
 #Load bashrc
-bash
-source /etc/bash.bashrc
+#bash
+#source /etc/bash.bashrc
 
 
 
