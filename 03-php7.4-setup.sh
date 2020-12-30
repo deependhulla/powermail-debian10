@@ -8,6 +8,9 @@ apt update
 
 apt install -y  apache2 php7.4-fpm php7.4-imap php7.4-gd php7.4-mysql php7.4-curl php7.4-xml php7.4-zip php7.4-intl php7.4-mbstring php7.4-json php7.4-bz2 php7.4-ldap php7.4-apcu php7.4-cli php7.4-bcmath libapache2-mod-fcgid  libapache2-mod-php7.4
 
+apt update
+apt-get -y upgrade
+
 a2enmod actions > /dev/null 2>&1
 a2enmod proxy_fcgi > /dev/null 2>&1
 a2enmod fcgid > /dev/null 2>&1
