@@ -1,3 +1,3 @@
 #!/bin/sh
 
-apt-get -y install recoll xapian-tools
+apt-get -y install recoll xapian-tools antiword catdoc unrtf poppler-utils ghostscript
