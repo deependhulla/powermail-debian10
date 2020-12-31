@@ -52,7 +52,7 @@ echo "iptables-persistent iptables-persistent/autosave_v4 boolean true" | debcon
 echo "iptables-persistent iptables-persistent/autosave_v6 boolean true" | debconf-set-selections
 
 
-apt-get -y install postfix openssh-server vim iptraf screen mc net-tools sshfs telnet iputils-ping git psmisc apt-transport-https curl bind9 curl elinks xfsprogs debconf-utils pwgen ca-certificates gnupg2 wget unzip zip software-properties-common htop fetchmail sudo iptables-persistent redis-server imagemagick mariadb-server postfix-mysql dovecot-mysql dovecot-sieve dovecot-managesieved dovecot-imapd dovecot-pop3d dovecot-sieve dovecot-antispam sendemail postfix-pcre postfwd whois opendkim opendkim-tools certbot python-certbot-apache apache2 ftp mcrypt clamav clamav-unofficial-sigs clamav-daemon tnef poppler-utils libimage-exiftool-perl build-essential automysqlbackup 
+apt-get -y install postfix openssh-server vim iptraf screen mc net-tools sshfs telnet iputils-ping git psmisc apt-transport-https curl bind9 curl elinks xfsprogs debconf-utils pwgen ca-certificates gnupg2 wget unzip zip software-properties-common htop fetchmail sudo iptables-persistent redis-server imagemagick mariadb-server postfix-mysql dovecot-mysql dovecot-sieve dovecot-managesieved dovecot-imapd dovecot-pop3d dovecot-sieve dovecot-antispam sendemail postfix-pcre postfwd whois opendkim opendkim-tools rar unrar certbot python-certbot-apache apache2 ftp mcrypt clamav clamav-unofficial-sigs clamav-daemon tnef poppler-utils libimage-exiftool-perl build-essential automysqlbackup 
 apt-get -y upgrade
 
 systemctl stop bind9 2>/dev/null
