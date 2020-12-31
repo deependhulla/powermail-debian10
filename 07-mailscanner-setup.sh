@@ -32,11 +32,10 @@ mkdir /mail-archive-data
 mkdir /mail-archive-data/mail-archive-uncompress 2>/dev/null
 mkdir /mail-archive-data/mail-archive-compress 2>/dev/null
 mkdir /mail-archive-data/mail-archive-process 2>/dev/null
-chmod 666 /mail-archive-data
-chmod 666 /mail-archive-data/mail-archive-uncompress
-chmod 666 /mail-archive-data/mail-archive-compress
-chmod 666 /mail-archive-data/mail-archive-process
-chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db
+chmod 666 /archivedata
+chmod 666 /archivedata/mail-archive-uncompress
+chmod 666 /archivedata/mail-archive-compress
+chmod 666 /archivedata/mail-archive-process
 
 MYSQLPASSMAILW=`pwgen -c -1 8`
 echo $MYSQLPASSMAILW > /usr/local/src/mysql-mailscanner-pass
@@ -63,6 +62,7 @@ echo "INSERT INTO \`mailscanner\`.\`users\` (\`username\`, \`password\`, \`fulln
 /bin/cp -pR files/mailscanner-files/MailWatch-1.2.16/tools/Cron_jobs/mailwatch /etc/cron.daily/
 /bin/cp -pR files/mailscanner-files/MailWatch-1.2.16/mailscanner /var/www/html/
 chown -R www-data:www-data /var/www/html/mailscanner/
+chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db
 
 sed -i "s/zaohm8ahC2/`cat /usr/local/src/mysql-mailscanner-pass`/" /var/www/html/mailscanner/conf.php
 sed -i "s/zaohm8ahC2/`cat /usr/local/src/mysql-mailscanner-pass`/" /usr/share/MailScanner/perl/custom/MailWatchConf.pm
