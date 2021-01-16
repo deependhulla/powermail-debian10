@@ -6,9 +6,9 @@
 ## should be without trailing /   (no slash)
 ##$vmainpath="/archive-mail-data";
 $vmainpath="/mail-archive-compress";
-$vmainpath="/archivedata/mail-archive-compress";
+$vmainpath="/archive-mail-data";
 
-$smtphost="192.192.10.22";
+$smtphost="127.0.0.1";
 $smtpport="25";
 
 
@@ -18,7 +18,7 @@ $enkey="getkeynowxyz";
 ###boxtype =1 means monthwise (2016_03)
 ###boxtype =2 means yearwise (2016)
 
-$boxtype=1;
+$boxtype=2;
 
 
 
@@ -90,6 +90,20 @@ if($loginok==1)
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>ArchiveMail Search.</title>
 
+<style type="text/css">
+                @import url("css/style.css");
+                @import url('css/style_text.css');
+                @import url('css/c-grey.css'); /* COLOR FILE CAN CHANGE TO c-blue.ccs, c-grey.ccs, c-orange.ccs, c-purple.ccs or c-red.ccs */
+                @import url('css/datepicker.css');
+                @import url('css/form.css');
+                @import url('css/menu.css');
+                @import url('css/messages.css');
+                @import url('css/statics.css');
+                @import url('css/tabs.css');
+                @import url('css/wysiwyg.css');
+                @import url('css/wysiwyg.modal.css');
+                @import url('css/wysiwyg-editor.css');
+        </style>
 
         <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
 
@@ -114,16 +128,31 @@ win.focus();
 }
 </script>
 
-<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-<style>
-body {
-    font-family: 'Roboto';
-font-size: 14px;
-}
-</style>
 
 </head>
 <body>
+<div class="wrapper">
+        <div class="container">
+
+                <!--[if !IE]> START TOP <![endif]-->
+                <div class="top">
+                        <div class="split"><h1>ArchiveMail Search</h1></div>
+                        <div class="split">
+                <div class="logout"><img src="images/icon-logout.gif" align="left" alt="" /> <a href="#" onclick="window.close();return false;">Close</a></div>
+                                <div><img src="images/icon-welcome.gif" align="left" alt="Welcome" /> Welcome <?php echo $globalwebmailuser; ?></div>
+                        </div>
+                </div>
+                <!--[if !IE]> END TOP <![endif]-->
+
+                <!--[if !IE]> START MENU <![endif]-->
+                <div class="menu">
+                        <ul>
+                                <li><a href="?fun=advanceemailsearch">Advance Email Search</a></li>
+                                <li class="break"></li>
+                        </ul>
+                </div>
+
+<div class="holder">
 <!-- HTML BODY for Work START here -->
 <?php
 ////////////////////////////////////////////////////////////////////////////
@@ -158,8 +187,6 @@ $noofrec=$_POST['noofrec'];
 if($noofrec==""){$noofrec=$_GET['noofrec'];}
 if($noofrec=="100"){$nofrec100="selected";}
 if($noofrec=="200"){$nofrec200="selected";}
-if($noofrec=="400"){$nofrec400="selected";}
-if($noofrec=="500"){$nofrec500="selected";}
 
 if($fun=="restoreemail")
 {
@@ -200,8 +227,6 @@ print "<br>Restoring Mail $resz :<font color=green>  ".$cc."</font>";
 }
 }
 
-
-print '<br><br><a href="index.php?">Back to Email ArchiveSearch</a> ';
 }
 
 
@@ -212,9 +237,12 @@ if($fun!="searchresult"  && $fun!="viewemail" && $fun!="restoreemail")
 #print "FUN: - $fun";
 $eeacemail=$globalwebmailuser;
 ?>
-<table width=50% align=center><tr><td align=center>
-<h3>Email ArchiveSearch</h3>
-</td></tr><tr><td nowrap>
+<div class="box">
+<div class="title">
+<h2>Search</h2>
+<img src="images/title-hide.gif" class="toggle" alt="" />
+</div>
+<div class="content messages">
 <form name="searchnow" action="index.php" method=get>
 <input type="hidden" name="fun" value="searchresult">
 Search for Email Communication <font color=red>*</font> <select name="searchmaintype">
@@ -272,7 +300,7 @@ print "<option value=\"".$extraemail[$ze]."\">".$extraemail[$ze]."</option>";
 <?php
 }
 ?>
-<br>Search in (Year/Month/Date) Enter (YYYY-MM for Month or YYYY-MM-DD for Day)
+<br>Search in (Year/Month/Date) Enter (YYYY for Year or YYYY-MM for Month or YYYY-MM-DD for Day)
  <font color=red>*</font> <input type=text name="searchdate"  value="<?=$searchdate?>">
 <br>
 Communicated with 
@@ -281,11 +309,10 @@ Email/Domain  <font color=red>*</font> <input type="text" name="searchcom" value
 <br>Show No of Records : <select name="noofrec">
 <option value="100" <?=$nofrec100?>>100 Records per Page</option>
 <option value="200" <?=$nofrec200?>>200 Records per Page</option>
-<option value="400" <?=$nofrec400?>>400 Records per Page</option>
 </select>
 <br><input type="submit" name="usubmit" value="Search" style="color:white; font-size:11px; font-weight : bold; background-color:green" onclick="document.searchnow.usubmit.value='Please wait..';document.searchnow.submit();">
 <br></form>
-<br></td></tr></table>
+<br></div></div>
 
 <?php
 
@@ -316,14 +343,13 @@ if($searchmaintype == "to" and $searchcom==""){$qx1 = "rcpt:".$searchacc."   "; 
 $qx= $qx." AND date :".$searchdate." ";
 if($searchsub != ""){$qx3 = "AND subject:".$searchsub."  ";  $qx=$qx.$qx3;}
 
-$qx=$qx." AND mime:message/rfc822";
 $cmdx="/usr/bin/recoll -t -m -n ".$noofrec."  -c  ".$vmainpath."/".$foldercheck."/indexdata/ -q \"(".$qx.")\" ";
 
 #print " --> $cmdx";
 
 $cmdoutx=`$cmdx`;
 $cmdout=explode("\n",$cmdoutx);
-#print "<pre> $cmdout </pre>";
+###print "<pre> $cmdout </pre>";
 
 $resultbox=$cmdout[1];
 $xmailfrom=array();
@@ -364,14 +390,14 @@ if($s1 == "url"){$ex=0;$m++;}
 ?>
 <!-- TABLE DESIGN START -->
 <form name="mybox" action="index.php" method=post>
-<div class="box"><div class="title"><h3><a href="index.php?">Email ArchiveSearch</a> : <?php echo $resultbox; ?> </h3>
+<div class="box"><div class="title"><h2>Email Search : <?php echo $resultbox; ?> </h2>
 <!-- <img src="images/title-hide.gif" class="toggle" alt="" /> -->
 </div>
 <div class="content pages">
 
 
 <input type="hidden" name="fun" value="restoreemail">
-<table><thead><tr bgcolor=#ddccdd>
+<table><thead><tr>
  <td><input type="checkbox" class="checkall" /></td>  
 <td>Sr.</td><td>Email From</td><td>Email To</td>
 <td>Subject</td><td>Dated</td></tr></thead><tbody>
@@ -419,7 +445,7 @@ $jsid++;
 ?>
 
 </tbody></table></form><div class="pages-bottom">
-<br><div class="actionbox">
+<div class="actionbox">
 <button type="usubmit" onClick="if(confirm('Are you sure you want to restore selected emails?')){document.mybox.submit();}return false;" ><span>Restore selected to my Inbox</span></button></div>
 
 <div class="pagination">
@@ -427,7 +453,7 @@ $jsid++;
 </div>
 </div>
 
-<br>&nbsp;
+
 
 <?php
 }
@@ -442,6 +468,14 @@ $jsid++;
 
 
 
+                <div class="footer">
+                        <div class="split">&#169; Copyright <a href="http://technoinfotech.com">TechnoInfotech,India</a></div>
+               <!--         <div class="split right">Maintained by <a href="mailto:support@technoinfotech.com">TechnoInfotech Support Team</a></div> -->
+                </div>
+
+
+
+</div></div>
 
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/jquery.pngFix.js"></script>

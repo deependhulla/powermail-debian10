@@ -1,6 +1,6 @@
 <?php
 
-$smtphost="192.192.10.22";
+$smtphost="127.0.0.1";
 $smtpport="25";
 
 $enkey="getkeynowxyz";
