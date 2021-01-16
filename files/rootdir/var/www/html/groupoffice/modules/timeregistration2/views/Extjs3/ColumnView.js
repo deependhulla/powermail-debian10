@@ -485,13 +485,23 @@ Ext.define('GO.timeregistration2.ColumnView',{
 		this.doLayout();
 	},
 
+	firstDayOfWeek: function (year, week) {
+
+		// Jan 1 of 'year'
+		var d = new Date(year, 0, 1);
+		d.setDate(d.getDate() + 4 - (d.getDay() || 7));
+		var week = (parseInt(week) + (year == d.getFullYear() ? -1 : 0 )),
+			days = parseInt(d.getDate()) + 7 * week;
+		d.setDate(days);
+		d.setDate(d.getDate() - 3);
+		return d;
+	},
+
 	loadEntries : function(timespan, key, yearnb) {
 
 		this.setTimeSpan(timespan);
 		if(timespan === 'week') {
-			this.day = new Date(yearnb, 0, (1 + (key - 1) * 7));
-			var firstDay = this.day.getDate() - this.day.getDay() + go.User.firstWeekday;
-			this.day.setDate(firstDay);
+			this.day = this.firstDayOfWeek(yearnb, key);
 			this.dayCount = 7;
 		} else {
 			this.day = new Date(yearnb, key-1, 1);

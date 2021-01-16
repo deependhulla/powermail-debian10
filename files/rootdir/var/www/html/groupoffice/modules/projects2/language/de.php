@@ -518,4 +518,5 @@ Einheiten: {units}, Tage: {days}
   'select_template' => 'Vorlage wählen',
   'Advanced' => 'Erweitert',
   'Reference' => 'Referenz',
+	'Change sub projects' => 'Unterprojekte ändern'
 );

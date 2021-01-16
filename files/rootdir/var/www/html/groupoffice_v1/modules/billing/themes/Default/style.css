@@ -1,0 +1,43 @@
+.entity.Order::before {
+	content: "attach_money";
+}
+
+
+.bs-scheduled-cb .x-form-check-wrap{
+margin:4px 8px !important;
+}
+
+.go-module-icon-billing , .go-menu-icon-billing{
+	background:url('images/billing.png');	
+}
+
+.go-tab-icon-billing {
+	background-image: none !important;
+}
+
+.go-model-icon-GO_Billing_Model_Order {
+	background-image: url('images/billing.png') !important;
+}
+/*
+.bs-items-grid .x-grid3-cell-inner, .bs-items-table  .x-grid3-hd-inner {
+    overflow:     auto;
+    white-space:     normal !important;
+}*/
+
+.bs-items-totals-panel {
+	padding:1px;
+}
+
+.bs-display-items td {
+	vertical-align: top;
+}
+
+.bs-icon-product{
+	background-image: url('images/product.png') !important;
+	height:16px;
+	width:16px;
+}
+
+.bs-late .x-grid3-cell{
+	color: red;	
+}

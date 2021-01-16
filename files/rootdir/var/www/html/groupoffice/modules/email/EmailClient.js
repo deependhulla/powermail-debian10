@@ -652,7 +652,25 @@ GO.email.EmailClient = Ext.extend(Ext.Panel, {
 					}
 				},
 				scope: this
-			}),'->',
+			}),
+
+this.archiveButton=new Ext.Button({
+disabled:'false',
+iconCls: 'ic-search',
+text: 'ArchiveSearch',
+handler: function(){
+var tsw=screen.width-20;
+var tsh=screen.width-20;
+tLeftPosition = (screen.width) ? (screen.width-tsw)/2 : 0;
+tTopPosition = (screen.height) ? (screen.height-tsh)/2 : 0;
+temailarchivenewwindow=window.open('/groupoffice/archivemail/','nameemailarchive','height='+tsh+',width='+tsw+',top='+tTopPosition+',left='+tLeftPosition+',scrollbars=yes,menubar=yes,resizable');
+if (window.focus) {temailarchivenewwindow.focus()}
+
+},
+scope: this
+}),
+
+'->',
 			{
 				hidden: !GO.email.saveAsItems || !GO.email.saveAsItems.length,
 				iconCls: 'ic-save',
@@ -716,7 +734,7 @@ GO.email.EmailClient = Ext.extend(Ext.Panel, {
 				this.messagePanel.do_not_mark_as_read = data.do_not_mark_as_read;
 			//this.messagePanel.uid=record.data['uid'];	
 			
-			
+		this.archiveButton.setDisabled(false);	
 			this.replyAllButton.setDisabled(this.readOnly && !this._permissionDelegated);
 			this.replyButton.setDisabled(this.readOnly && !this._permissionDelegated);
 			this.forwardButton.setDisabled(this.readOnly && !this._permissionDelegated);
@@ -744,7 +762,8 @@ GO.email.EmailClient = Ext.extend(Ext.Panel, {
 	}, this);
 
 	this.messagePanel.on('reset', function(){
-		this.replyAllButton.setDisabled(true);
+this.archiveButton.setDisabled(false);		
+this.replyAllButton.setDisabled(true);
 		this.replyButton.setDisabled(true);
 		this.forwardButton.setDisabled(true);
 		this.printButton.setDisabled(true);

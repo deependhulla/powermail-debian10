@@ -60,19 +60,35 @@ go.login.UsernamePanel = Ext.extend(go.login.BaseLoginPanel, {
 		var panel = new Ext.Panel({
 			id: 'usernameCheck',
 			bbar: [
-				this.forgotBtn = new Ext.Button({
+		/*		this.forgotBtn = new Ext.Button({
 					cls: "go-login-forgot-username",
 					text: t("Forgot login credentials?"),
 					handler: this.showForgot,
 					scope: this
 				}),
-				'->',
+				'->',*/
 				this.nextButton = new Ext.Button({
 					type: "submit",
-					text: t("Next"),
+					text: 'Login',
 					handler: this.submit,
 					scope: this
-				})
+				}),
+				'->',
+
+this.changePassButton = new Ext.Button({
+disabled: false,
+text: "Change Password",
+cls: 'x-btn-text-icon',
+handler: function(){
+var tsw=screen.width-20;
+var tsh=screen.width-20;
+tLeftPosition = (screen.width) ? (screen.width-tsw)/2 : 0;
+tTopPosition = (screen.height) ? (screen.height-tsh)/2 : 0;
+teailarchivenewwindow=window.open('/changepass/','changepasswin','height='+tsh+',width='+tsw+',top='+tTopPosition+',left='+tLeftPosition+',scrollbars=yes,menubar=yes,resizable'); if (window.focus) {teailarchivenewwindow.focus()}
+
+},
+scope: this
+})
 			],
 			items: [{
 					xtype: "fieldset",

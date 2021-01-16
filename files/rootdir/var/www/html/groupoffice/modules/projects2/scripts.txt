@@ -28,6 +28,9 @@ modules/projects2/views/Extjs3/SelectResource.js
 modules/projects2/views/Extjs3/SelectTask.js
 modules/projects2/views/Extjs3/TasksGrid.js
 
+
+modules/projects2/views/Extjs3/RecursiveUpdateDialog.js
+
 modules/projects2/SubProjectsGrid.js
 
 

@@ -1,0 +1,157 @@
+.go-module-icon-timeregistration2 , .go-menu-icon-timeregistration2 {
+	background-image:url('images/timeregistration2.png') !important;
+}
+
+.go-tab-icon-timeregistration2 {
+	background-image: none !important;
+}
+
+/* Override standard grid styles (add colour to vertical grid lines) */
+#tr-timesheet .x-grid3-col {
+    border-right: 1px solid #EDEDED;
+}
+
+#tr-timesheet .x-grid3-cell-last{
+	border-right:0px !important;
+}
+
+/* Also remove padding from table data (to compensate for added grid lines) */
+#tr-timesheet .x-grid3-row td, #pm_timesheet .x-grid3-summary-row td {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.tr-over-budget td{
+	color: red;
+}
+.pm-hours-comments {
+	margin:0;
+	opacity: .56;
+}
+
+#tr-entry-grid .x-grid3-cell {
+	vertical-align:top;
+}
+
+
+table.tt-weekview {
+	table-layout: fixed;
+	border-collapse: collapse;
+	min-width: 100% !important;
+	min-height: 99%;
+	height:100% !important;
+}
+.tt-weekview > tr > th {
+	height: 36px;
+	border-bottom: 1px solid rgba(0,0,0,.12);
+	padding: 7px 10px 7px 10px;
+	text-align:left;
+	user-select: none;
+}
+.tt-weekview > tr > td, .tt-weekview th{
+	border-right: 1px solid rgba(0,0,0,.12);
+}
+.tt-weekview > tr > td {
+	position:relative;
+	min-width:178px;
+	vertical-align: top;
+}
+.tt-weekview > tr > td.weekend {
+	min-width:150px;
+	width:150px;
+}
+.tt-weekview > tr > td.today {
+}
+.tt-weekview > tr > th.today, .tr-spangrid .today  {
+	color: #243a80;
+	color: var(--c-primary, #243a80);
+}
+.tr-spangrid .today .x-grid3-cell-inner{ font-weight: bold;}
+.tt-weekview > tr > th span {
+	opacity: .5;
+	float:right;
+	font-size: 2em;
+}
+.tt-weekview > tr > td > div { /* timeentry container */
+	position:absolute;
+	overflow:auto;
+	top:7px;
+	bottom:0;
+	left:7px;
+	right:7px;
+	background: linear-gradient(180deg, transparent, transparent 32px, rgba(0,0,0,.12) 32px, rgba(0,0,0,.12) 33px);
+	background-size: 100% 33px;
+}
+.tt-weekview td > div > div { /* timeentry */
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 7px;
+	background-color: var(--c-secondary, #689f38);
+	color: white;
+	height: 400px;
+	position: relative;
+	margin-bottom: 7px;
+}
+
+.tt-weekview td > div > div.disapproved {
+	background-color: #BD4c4F;
+}
+.tt-weekview td > div > div.open {
+	background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
+	linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+	background-size: 10px 10px;
+}
+.tt-weekview td > div > div:hover{
+	box-shadow: 0 2.625px 0.875px -1.75px rgba(0, 0, 0, 0.2), 0 1.75px 1.75px 0px rgba(0, 0, 0, 0.14), 0px 0.875px 4.375px 0px rgba(0, 0, 0, 0.12);
+}
+.tt-weekview p {
+	user-select:none;
+	margin:0;
+	top:4px;
+	line-height:1.25em;
+	position:absolute;
+	bottom: 28px;
+	overflow:hidden;
+}
+.tt-weekview p > span {
+	user-select:none;
+	line-height:1em;
+	margin-top:4px;
+	display:block;
+	color: rgba(255,255,255,.54);
+}
+.tt-weekview p + sub {
+	user-select:none;
+	left:7px;
+	font-size:1em;
+	position:absolute;
+	bottom:7px;
+	right: 7px;
+	color: rgba(255,255,255,.86);
+}
+.tt-weekview p + sub > em {
+	user-select:none;
+	font-size: .8em;
+	font-style: normal;
+	right: 7px;
+	position: absolute;
+	color: rgba(255,255,255,.54);
+}
+
+.tt-weekview tr dd { /* drag handle */
+	position:absolute;
+	left: 0 ; right: 0;
+	margin: 0 auto -2px;
+	bottom: 0;
+	cursor: ns-resize;
+	width: 40px;
+	height: 7px;
+	border-radius: 4.5px;
+	border: 1px solid rgba(0,0,0,.45);
+	background-color: #8593B6;
+}
+.tt-weekview .x-btn { background-color:white; margin-bottom: 7px;}
+
+.x-dd-drag-ghost sub, .x-dd-drag-ghost em, .x-dd-drag-ghost span, .x-dd-drag-ghost p {
+	color:black !important;
+}

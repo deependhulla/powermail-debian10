@@ -495,5 +495,7 @@ Eenheden: {units}, Dagen: {days}
 	'Total_budget_vat' => 'BTW over Totaalbudget',
 	'Hours_spent_this_month' => 'Uren Besteed in Periode',
 	'Total_hours_spent' => 'Totaal Uren Besteed',
-	'Total_budgeted_hours' => 'Budget Uren Totaal'
+	'Total_budgeted_hours' => 'Budget Uren Totaal',
+	'Change sub projects' => 'Pas subprojecten aan',
+	'Please select one or more fields to update or close this window' => 'Selecteert u s.v.p. één of meer velden om bij te werken of sluit dit venster.'
 );

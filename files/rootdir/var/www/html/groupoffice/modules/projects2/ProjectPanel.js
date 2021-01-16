@@ -488,6 +488,22 @@ GO.projects2.ProjectPanel = Ext.extend(GO.DisplayPanel, {
 			},
 			scope: this
 		}));
+
+		this.moreButton.menu.add(this.recursiveBtn = new Ext.menu.Item({
+			iconCls: 'ic-folder-shared',
+			text: t("Change sub projects", "projects2"),
+			handler: function() {
+				if(!this.recursiveUpdateDialog) {
+					this.recursiveUpdateDialog = new GO.projects2.RecursiveUpdateDialog()
+				}
+				this.recursiveUpdateDialog.on("hide", function () {
+					this.fireEvent("fullReload", this);
+				}, this);
+				this.recursiveUpdateDialog.show(this.data.id);
+			},
+			scope: this
+
+		}));
 	},
 
 	setData: function (data)

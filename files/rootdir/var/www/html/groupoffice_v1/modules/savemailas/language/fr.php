@@ -1,0 +1,21 @@
+<?php
+return array (
+  'File to computer' => 'Fichier vers ordinateur',
+  'File in {product_name}' => 'Enregistrer dans {product_name}',
+  'E-mail viewer' => 'Visualiser l\'e-mail',
+  'Link e-mail conversation to contact %s' => 'Lier l\'e-mail avec le contact %s',
+  'Link e-mail conversation to company %s' => 'Lier l\'e-mail avec la société %s',
+  'name' => 'Menu "Sauvegarder sous" pour les e-mails',
+  'description' => 'Sauvegardez vos e-mails sous forme de fichier, lien, rendez-vous, note ou tâche.',
+  'File in Group-Office' => 'Fichier dans GroupOffice',
+  'Mail to item' => 'Email vers élément',
+  'File to item' => 'Fichier vers élément',
+  'Appointment' => 'Rendez-vous',
+  'Note' => 'Note',
+  'Task' => 'Tâche',
+  'Project' => 'Projet',
+  'Ticket' => 'Ticket',
+  'Copying messages...' => 'Copie des messages...',
+  'E-mail message' => 'Message électronique',
+  'Follow Up' => 'Suivre',
+);
