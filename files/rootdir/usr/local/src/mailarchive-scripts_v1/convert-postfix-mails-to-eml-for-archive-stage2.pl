@@ -9,7 +9,7 @@ use DBI;
 
 my $myfilelist="/tmp/mail-for-process-for-emailarchive-stage2-list";
 ##my $cmx="find /archive-mail-data/stage1/ -type f > ".$myfilelist;
-my $cmx="find /archivedata/mail-fetched/  -type f > ".$myfilelist;
+my $cmx="find /mail-archive-uncompress/ -type f > ".$myfilelist;
 
 #print "\n $cmx ";
 
@@ -28,7 +28,7 @@ $directeml=~ s/\n/""/eg;
 print "\n Convert from  $zy -> $directeml";
 my $newtmpfile=`perl -MTime::HiRes=time -E 'say time'`;
 ##my $cmdxpost="/usr/sbin/postcat -hb $directeml  > /archive-mail-data/stage2/".$newtmpfile." ";
-my $cmdxpost="/usr/sbin/postcat -hb $directeml  > /archivedata/mail-archive-process/".$newtmpfile." ";
+my $cmdxpost="/usr/sbin/postcat -hb $directeml  > /mail-archive-process/".$newtmpfile." ";
 print "\n $cmdxpost";
 
 my $cmdp1=`$cmdxpost`;

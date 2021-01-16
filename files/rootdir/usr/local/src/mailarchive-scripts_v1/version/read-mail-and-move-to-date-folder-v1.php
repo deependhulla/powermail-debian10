@@ -3,17 +3,14 @@
 
 ## should be without trailing /   (no slash)
 
-###$vmainpath="/archive-mail-data";
-$vmainpath="/archivedata/mail-archive-compress";
+$vmainpath="/archive-mail-data";
 
 
 ###boxtype =0 means datewise (2016_03_20)
 ###boxtype =1 means monthwise (2016_03)
 ###boxtype =2 means yearwise (2016)
 
-$boxtype=1;
-
-$make_header_only_for_search=0;
+$boxtype=2;
 
 $path = $argv[1];
 $path=str_replace("\n","",$path);
@@ -27,7 +24,7 @@ $ex=array();
 $ex =explode(".",$path);
 $gotgzip=0;
 if(mime_content_type($path) =="application/x-gzip"){$gotgzip=1;}
-if($ex[sizeof($ex)-1] == "gz") {$gotgzip=1;}
+if($ex[1] == "gz") {$gotgzip=1;}
 
 
 
@@ -39,8 +36,7 @@ $path=str_replace(".gz","",$path);
 }
 
 print "\nReading : $path ";
-##require_once '/opt/archive-tools/program/vendor/autoload.php';
-require_once '/usr/local/src/mailarchive-scripts/vendor/autoload.php';
+require_once '/opt/archive-tools/program/vendor/autoload.php';
 $Parser = new PhpMimeMailParser\Parser();
 $Parser->setPath($path);
 
@@ -98,7 +94,7 @@ $maildatex=$dx[1];$maildatey = DateTime::createFromFormat( ' d M Y H:i:s ', $mai
 
 
 print "\n DATEX7 ->".$maildatex."<-";
-#print "\n DATEX8 ->".$maildatey."<-";
+print "\n DATEX8 ->".$maildatey."<-";
 }
 //////////////////////
 
@@ -118,12 +114,11 @@ $datext=date('hi');
 $indexbox=$vmainpath."/".$mailfolder."/indexdata/";
 $mainbox=$vmainpath."/".$mailfolder."/maindata/".$datext;
 $headerbox=$vmainpath."/".$mailfolder."/headerdata/".$datext;
-if($make_header_only_for_search==0){$topmainbox=$vmainpath."/".$mailfolder."/maindata/";}
-if($make_header_only_for_search==1){$topmainbox=$vmainpath."/".$mailfolder."/headerdata/";}
+$topmainbox=$vmainpath."/".$mailfolder."/headerdata/";
 
 mkdir($indexbox, 0777, true);
 mkdir($mainbox, 0777, true);
-if($make_header_only_for_search==1){mkdir($headerbox, 0777, true);}
+mkdir($headerbox, 0777, true);
 $configfile=$indexbox."/recoll.conf";
 $topline="topdirs = ".$topmainbox."\n";
 file_put_contents($configfile, $topline);
@@ -138,24 +133,21 @@ $hfile=$headerbox."/".$mtime;
 
 print "\n Header : $hfile";
 
-if($make_header_only_for_search==1){
 file_put_contents($hfile, $stringHeaders);
+
 $mcmdx="gzip -9v \"".$hfile."\" ;  ";
 print "\n $mcmdx ";
 `$mcmdx`;
-}
 
-$mcmdx="mv \"".$path."\" \"".$newfile."\" ; gzip -9v \"".$newfile."\" ; chmod 755 \"".$newfile.".gz\" ;  ";
+$mcmdx="mv \"".$path."\" \"".$newfile."\" ; gzip -9v \"".$newfile."\" ";
 print "\n $mcmdx ";
 `$mcmdx`;
 
-if($make_header_only_for_search==0){$addcmdx="recollindex -c ".$indexbox."/ -i ".$newfile.".gz";}
-if($make_header_only_for_search==1){$addcmdx="recollindex -c ".$indexbox."/ -i ".$hfile.".gz";}
+$addcmdx="recollindex -c ".$indexbox."/ -i ".$hfile.".gz";
 print "\n $addcmdx ";
 `$addcmdx`;
-
 $searchline="recoll  -t  -c  ".$indexbox."/ -q \"$to\"";
-#print "\n$searchline\n";
+print "\n$searchline\n";
 
 #print "\n";
 

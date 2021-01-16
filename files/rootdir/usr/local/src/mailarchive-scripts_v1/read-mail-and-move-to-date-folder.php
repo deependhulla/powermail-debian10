@@ -4,7 +4,7 @@
 ## should be without trailing /   (no slash)
 
 ###$vmainpath="/archive-mail-data";
-$vmainpath="/archivedata/mail-archive-compress";
+$vmainpath="/mail-archive-compress";
 
 
 ###boxtype =0 means datewise (2016_03_20)
@@ -27,7 +27,7 @@ $ex=array();
 $ex =explode(".",$path);
 $gotgzip=0;
 if(mime_content_type($path) =="application/x-gzip"){$gotgzip=1;}
-if($ex[sizeof($ex)-1] == "gz") {$gotgzip=1;}
+if($ex[1] == "gz") {$gotgzip=1;}
 
 
 

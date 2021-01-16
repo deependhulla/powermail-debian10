@@ -152,7 +152,7 @@ print "\n $mcmdx ";
 if($make_header_only_for_search==0){$addcmdx="recollindex -c ".$indexbox."/ -i ".$newfile.".gz";}
 if($make_header_only_for_search==1){$addcmdx="recollindex -c ".$indexbox."/ -i ".$hfile.".gz";}
 print "\n $addcmdx ";
-`$addcmdx`;
+#`$addcmdx`;
 
 $searchline="recoll  -t  -c  ".$indexbox."/ -q \"$to\"";
 #print "\n$searchline\n";
