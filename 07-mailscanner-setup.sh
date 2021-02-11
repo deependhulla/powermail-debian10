@@ -43,7 +43,7 @@ echo $MYSQLPASSMAILW > /usr/local/src/mysql-mailscanner-pass
 echo "Creating Database mailscanner for storing all logs for mailwatch"
 mysqladmin create mailscanner -uroot
 mysql < files/mailscanner-files/MailWatch-1.2.16/create.sql
-
+mysql < files/mailscanner-files/mailwatch-fix-for-subject-special-char-support.sql 
 echo "GRANT ALL PRIVILEGES ON mailscanner.* TO mailscanner@localhost IDENTIFIED BY '$MYSQLPASSMAILW'" | mysql -uroot
 mysqladmin -uroot reload
 mysqladmin -uroot refresh
