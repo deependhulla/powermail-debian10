@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-$nonbranchmailbox='nonbranchusers@manugrph.com';
+$nonbranchmailbox='exchange_catchall@goldsgym.in';
 
 use DBI;
 use File::Copy;
@@ -43,8 +43,8 @@ while( ($filex = readdir(DIR))) {
 if($filex ne "." && $filex ne "..")
 { 
  $mailx=$folderx.$filex; 
-print " $mailx \n";
-##move($maily,$foldercur);
+print " $mailx  --> $nonbranchfolderx \n";
+move($mailx,$nonbranchfolderx);
 
 ## if file over
 }

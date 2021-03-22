@@ -10,7 +10,8 @@ else
 
 touch /tmp/read-group-mail-list.pid
 
-perl process-group-mail-list.pl
+#perl process-group-mail-list.pl
+perl process-group-mail-list-direct.pl
 
 /bin/rm -rf /tmp/read-group-mail-list.pid
 fi
