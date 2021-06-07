@@ -1,5 +1,7 @@
 #!/bin/sh
 
+
+apt-get install -y iptables-persistent
 echo "" > /etc/systemd/system/iptables.service
 
 echo "[Unit]" >> /etc/systemd/system/iptables.service
