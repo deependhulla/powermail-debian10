@@ -1,5 +1,6 @@
 #!/bin/sh
 
+/bin/cp files/rootdir/etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/
 sed -i "s/powermail\.mydomainname\.com/`hostname -f`/" /etc/apache2/sites-available/default-ssl.conf
 sed -i "s/SSLCertificateFile	\/etc\/ssl\/certs\/ssl-cert-snakeoil\.pem/ /" /etc/apache2/sites-available/default-ssl.conf
 sed -i "s/SSLCertificateKeyFile \/etc\/ssl\/private\/ssl-cert-snakeoil\.key/ /" /etc/apache2/sites-available/default-ssl.conf
@@ -36,5 +37,6 @@ cat /etc/letsencrypt/live/`hostname -f`/fullchain.pem > /etc/webmin/miniserv.pem
 cat /etc/letsencrypt/live/`hostname -f`/privkey.pem >> /etc/webmin/miniserv.pem
 /etc/init.d/webmin restart
 
+cp files/rootdir/usr/local/src/cert-renew-and-restart.sh /usr/local/src/
 sed -i "s/powermail\.mydomainname\.com/`hostname -f`/" /usr/local/src/cert-renew-and-restart.sh
 
