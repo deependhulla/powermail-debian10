@@ -26,3 +26,7 @@ a2enmod cgi > /dev/null 2>&1
 a2enmod headers > /dev/null 2>&1
 a2enmod proxy_http > /dev/null 2>&1
 
+## keep fpm disabled default
+systemctl stop php7.4-fpm
+systemctl disable php7.4-fpm
+
