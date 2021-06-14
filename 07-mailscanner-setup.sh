@@ -32,10 +32,10 @@ mkdir /archivedata
 mkdir /archivedata/mail-archive-uncompress 2>/dev/null
 mkdir /archivedata/mail-archive-compress 2>/dev/null
 mkdir /archivedata/mail-archive-process 2>/dev/null
-chmod 666 /archivedata
-chmod 666 /archivedata/mail-archive-uncompress
-chmod 666 /archivedata/mail-archive-compress
-chmod 666 /archivedata/mail-archive-process
+chmod 777 /archivedata
+chmod 777 /archivedata/mail-archive-uncompress
+chmod 777 /archivedata/mail-archive-compress
+chmod 777 /archivedata/mail-archive-process
 
 MYSQLPASSMAILW=`pwgen -c -1 8`
 echo $MYSQLPASSMAILW > /usr/local/src/mysql-mailscanner-pass
