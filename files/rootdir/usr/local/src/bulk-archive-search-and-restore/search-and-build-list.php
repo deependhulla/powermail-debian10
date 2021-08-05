@@ -18,6 +18,7 @@ fwrite(STDERR, "Searching for : $search_email_id --> $searchdate\n");
 
 ## Emailarchive search folder
 $vmainpath="/mailarchivedata/new-mail-archive-data";
+#$vmainpath="/archive-mail-data";
 ###boxtype =0 means datewise (2016_03_20)
 ###boxtype =1 means monthwise (2016_03)
 ###boxtype =2 means yearwise (2016)
